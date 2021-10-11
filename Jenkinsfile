@@ -104,7 +104,7 @@ pipeline {
     }
     post {
         always {
-            echo 'Deleting all local images'
+            echo 'Deleting all local imagess'
             sh 'docker image prune -af'
         }
         failure {
