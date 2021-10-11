@@ -1,4 +1,4 @@
-Pipeline {
+pipeline {
     agent any
     environment {
         PATH=sh(script:"echo $PATH:/usr/local/bin", returnStdout:true).trim()
