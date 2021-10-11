@@ -1,11 +1,11 @@
-pipeline {
+Pipeline {
     agent any
     environment {
         PATH=sh(script:"echo $PATH:/usr/local/bin", returnStdout:true).trim()
-        AWS_REGION = "us-east-1"
+        AWS_REGION = "us-east-1"                                        
         AWS_ACCOUNT_ID=sh(script:'export PATH="$PATH:/usr/local/bin" && aws sts get-caller-identity --query Account --output text', returnStdout:true).trim()
         ECR_REGISTRY="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
-        // ECR_REGISTRY = "046402772087.dkr.ecr.us-east-1.amazonaws.com"
+        // ECR_REGISTRY = "602192532120.dkr.ecr.us-east-1.amazonaws.com"
         APP_REPO_NAME = "clarusway-repo/phonebook-app"
         APP_NAME = "phonebook"
         AWS_STACK_NAME = "Call-Phonebook-App-${BUILD_NUMBER}"
